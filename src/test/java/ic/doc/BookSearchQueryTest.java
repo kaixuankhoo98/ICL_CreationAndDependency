@@ -1,5 +1,6 @@
 package ic.doc;
 
+import static ic.doc.QueryBuilder.aQuery;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -12,7 +13,8 @@ public class BookSearchQueryTest {
   @Test
   public void searchesForBooksInLibraryCatalogueByAuthorSurname() {
 
-    List<Book> books = new BookSearchQuery(null, "dickens", null, null, null).execute();
+    List<Book> books = aQuery().withName2("dickens").build().execute();
+            // (null, "dickens", null, null, null).execute();
 
     assertThat(books.size(), is(2));
     assertTrue(books.get(0).matchesAuthor("dickens"));
