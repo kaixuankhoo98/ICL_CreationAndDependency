@@ -15,8 +15,14 @@ import java.util.stream.Collectors;
 public class BritishLibraryCatalogue {
 
   // imagine that each new instance of this object uses more than 500MB of RAM
-
+  private final static BritishLibraryCatalogue instance = new BritishLibraryCatalogue();
   private final Collection<Book> catalogue = allTheBooks();
+
+  private BritishLibraryCatalogue() {}
+
+  public static BritishLibraryCatalogue getInstance() {
+    return instance;
+  }
 
   public List<Book> searchFor(String query) {
     return catalogue.stream()
