@@ -5,5 +5,5 @@ import ic.doc.Book;
 import java.util.List;
 
 public interface Catalogue {
-    List<Book> searchFor(String query);
+  List<Book> searchFor(String query);
 }

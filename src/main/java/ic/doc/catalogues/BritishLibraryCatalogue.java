@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class BritishLibraryCatalogue implements Catalogue {
 
   // imagine that each new instance of this object uses more than 500MB of RAM
-  private final static BritishLibraryCatalogue instance = new BritishLibraryCatalogue();
+  private static final BritishLibraryCatalogue instance = new BritishLibraryCatalogue();
   private final Collection<Book> catalogue = allTheBooks();
 
   private BritishLibraryCatalogue() {}
@@ -34,7 +34,6 @@ public class BritishLibraryCatalogue implements Catalogue {
         .filter(book -> book.publishedBefore(publishedBeforeFrom(query)))
         .collect(Collectors.toList());
   }
-
 
   private Collection<Book> allTheBooks() {
 
@@ -55,5 +54,4 @@ public class BritishLibraryCatalogue implements Catalogue {
     // and so on... Imagine that this list is very large and therefore uses a lot of memory.
 
   }
-
 }
